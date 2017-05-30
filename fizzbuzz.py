@@ -11,18 +11,30 @@ Regras do fizzbuzz
 
 """
 
+def multiple_of(base, num):
+    return num % base == 0
+
+def multiple_of_5(num):
+    return multiple_of(5,num)
+
+
+def multiple_of_3(num):
+    return multiple_of(3,num)
+
 
 def robot(pos):
-    if pos in (45,30,15):
-        return 'fizzbuzz'
+    say = str(pos)
 
-    if pos % 5 == 0:
-        return 'buzz'
+    if multiple_of_3(pos) and multiple_of_5(pos):
+        say = 'fizzbuzz'
 
-    if pos % 3 == 0:
-        return 'fizz'
+    elif multiple_of_5(pos):
+        say = 'buzz'
 
-    return str(pos)
+    elif multiple_of_3(pos):
+        say = 'fizz'
+
+    return say
 
 
 if __name__ == '__main__':
