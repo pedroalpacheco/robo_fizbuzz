@@ -9,17 +9,15 @@ Regras do fizzbuzz
 3.Se a posição for multiplo de 3 e  5: fizzbuzz.
 4.Se for qualquer outra posição fale o próprio número.
 
+parei video 39:25
 """
-
-def multiple_of(base, num):
-    return num % base == 0
-
-def multiple_of_5(num):
-    return multiple_of(5,num)
+from functools import partial
 
 
-def multiple_of_3(num):
-    return multiple_of(3,num)
+multiple_of = lambda base, num: num % base == 0
+multiple_of_5 = partial(multiple_of,5)
+multiple_of_3 = partial(multiple_of,3)
+
 
 
 def robot(pos):
