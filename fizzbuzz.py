@@ -36,10 +36,11 @@ def robot(pos):
     return say
 
 def assert_equal(first, second, line):
-    try:
-        assert first == second
-    except AssertionError:
-        print('Line', line, first, second)
+    msg = 'Fail: LINE{} GOT {} EXPECTING {}'
+
+    if not first == second:
+        print(msg.format(line, first, second))
+
 
 if __name__ == '__main__':
     assert_equal(robot(1) , '1', '43')
