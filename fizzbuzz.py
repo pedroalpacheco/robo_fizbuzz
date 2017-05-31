@@ -9,6 +9,8 @@ Regras do fizzbuzz
 3.Se a posição for multiplo de 3 e  5: fizzbuzz.
 4.Se for qualquer outra posição fale o próprio número.
 
+parei video 8:42
+
 """
 from functools import partial
 
@@ -33,25 +35,25 @@ def robot(pos):
 
     return say
 
-def assert_true(expr):
+def assert_equal(first, second, line):
     try:
-        assert expr
+        assert first == second
     except AssertionError:
-        print(expr)
+        print('Line', line, first, second)
 
 if __name__ == '__main__':
-    assert_true(1) == '1'
-    assert_true(2) == '2'
-    assert_true(4) == '4'
+    assert_equal(robot(1) , '1', '43')
+    assert_equal(robot(2) , '2', '44')
+    assert_equal(robot(4) , '4', '45')
+                          
+    assert_equal(robot(3) , 'fizz', '47')
+    assert_equal(robot(6) , 'fizz', '48')
+    assert_equal(robot(9) , 'fizz', '49')
 
-    assert_true(robot(3) == 'fizz')
-    assert_true(robot(6) == 'fizz')
-    assert_true(robot(9) == 'fizz')
-
-    assert_true(robot(5) == 'buzz' )
-    assert_true(robot(10) == 'buzz')
-    assert_true(robot(20) == 'buzz')
-
-    assert_true(robot(15) == 'fizzbuzz')
-    assert_true(robot(30) == 'fizzbuzz')
-    assert_true(robot(45) == 'fizzbuzz')
+    assert_equal(robot(5) , 'buzz', '51')
+    assert_equal(robot(10) , 'buzz', '52')
+    assert_equal(robot(20) , 'buzz', '53')
+                           
+    assert_equal(robot(15) , 'fizzbuzz', '55')
+    assert_equal(robot(30) , 'fizzbuzz', '56')
+    assert_equal(robot(45) , 'fizzbuzz', '57')
